@@ -1,0 +1,25 @@
+{
+  "name": "javascript-calculator",
+  "version": "1.0.0",
+  "description": "Simple JavaScript calculator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikaple/javascript-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nikaple/javascript-calculator/issues"
+  },
+  "homepage": "https://github.com/Nikaple/javascript-calculator#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-size": "^2.1.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}

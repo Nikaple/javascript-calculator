@@ -144,7 +144,6 @@ $(document).ready(function() {
             currentValue = "0";
             $('#output').text("0");
         }
-
     });
 });
 
