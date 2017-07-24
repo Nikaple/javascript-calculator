@@ -1,93 +1,107 @@
+@font-face { 
+  font-family: digital-7; 
+  src: url('../font/digital-7.ttf'); 
+}
+
+@font-face {
+    font-family: Orbitron;
+    src: url('../font/Orbitron.woff2') format('woff2');
+}
+
 body {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 
-    font-family: "微软雅黑", "Microsoft-Yahei";
-    font-size: 13px;
+    font-family: 'Orbitron', "Microsoft-Yahei", sans-serif;
+    font-size: 16px;
 }
 
-div.container {
+h1 {
+    color: #333;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 3px #ddd;
+}
+
+#calculator {
+    width: 338px;
+    height: 390px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
+    margin-top: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    background-color: #eeedeb;
+    box-shadow: 2px 2px 2px #222;
+}
+
+#screen {
+    font-family: 'digital-7';
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 15px auto;
+    padding-right: 6px;
+    border: 1px solid black; 
+    border-radius: 4px;
+    color: white;
+    background-color: #343434;
+    box-shadow: inset 2px 2px 3px 2px #000, 1px 1px 2px #888;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 button {
-    margin: 4px 2px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 0;
-    width: 70px;
-    text-align: center;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
     background-color: #f9f9f9;
-    box-shadow: 1px 1px 2px #222;
-    transition: .2s all;
-    user-select: none;
+    margin: 4px 2px;
+    margin-bottom: 8px;
+    width: 60px; 
+    line-height: 50px;
+    outline: 0;
+    transition: 0.1s all;
+    background-image: linear-gradient(#ddd 0%, rgb(236, 236, 236) 100%);
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 0px #e4e4e4, 0px 5px 0px 0px #484848, 0px 10px 5px #999;
 }
+
 button:hover {
     background-color: #ddd;
 }
 
-button:focus {
-    outline: 0;
+button:active {
+    top:3px;
+	background-image: linear-gradient(#e4e4e4 0%, rgb(204, 204, 204) 100%);
+	box-shadow: inset 0px 1px 0px #e4e4e4, 0px 2px 0px 0px #484848, 0px 5px 3px #999;
 }
 
-#calculator {
-    margin-top: 30px;
-    border: 1px solid black;
-    border-radius: 10px;
-    width: 400px;
-    height: 370px;
-    background-color: #FFEA61;
-    box-shadow: 2px 2px 2px #222;
-}
-
-h1 {
-    font-size: 20px;
-    text-align: center;
-    color: #666;
-    text-shadow: 1px 1px 1px #eee;
-}
-
-#screen {
-    margin: 15px 10px 12px 0;
-    border: 1px solid black;
-    border-radius: 5px;
-    height: 50px;
-    background-color: #DCFDFE;
-    box-shadow: inset 2px 2px 3px #000, 1px 1px 2px #888;
-    text-align: right;
-    font-size: 30px;
-    line-height: 50px;
-    padding-right: 10px;
-    overflow: hidden;
-}
-
-.buttons div {
-    float: left;
+.buttons {
+    position: relative;
+    user-select: none;
 }
 
 #numbers {
-    width: 230px;
+     width: 204px; 
 }
 
 #operators {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 205px;
     padding: 0;
-    margin-left: 8px;
-    width: 160px;
+    width: 133px;
 }
 
-#numbers button {
-    height: 50px;
-    line-height: 50px;
+.higher-button {
+    line-height: 114px;
 }
 
-#operators .normal-button {
-    height: 50px;
-
-    line-height: 50px;
-}
-#operators .higher-button {
-    height: 108px;
-
-    line-height: 108px;
+.big-button {
+    font-size: 20px;
 }

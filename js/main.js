@@ -16,12 +16,16 @@ $(document).ready(function() {
     $('button').click(function() {
         currentText = $('#output').text();
         currentValue = $(this).val();
-        isLastStrOperator = (operators.indexOf(currentText[currentText.length - 1]) > -1 ) || (currentText === "0" && operators.indexOf(currentValue) > -1);
+        isLastCharOperator = operators.indexOf(currentText[currentText.length - 1]) > -1;
+        isInputOperatorOnReset = currentText === "0" && operators.indexOf(currentValue) > -1;
+        isLastStrOperator = isLastCharOperator || isInputOperatorOnReset;
         isSecondLastStrOperator = operators.indexOf(currentText[currentText.length - 2]) > -1;
         switch (currentValue) {
             case "=":
-                // 将÷替换为/
-                currentText = currentText.replace(/÷/g, "/");
+                // 将×÷替换为*/
+                currentText = currentText.replace(/[×÷]/g, function(match){
+                    return match === '×' ? '*' : '/';
+                });
                 //如果最后一位是运算符，则忽略
                 if (isLastStrOperator) {
                     currentText = currentText.replace(/.$/, "");
@@ -31,6 +35,7 @@ $(document).ready(function() {
                 if (screenText == "Infinity") {
                     screenText = "Error: Divided by 0";
                 } else {
+                    // 计算结果没有大到自动使用科学计数法时
                     if (String(screenText).indexOf('e') === -1){
                         screenText = (+screenText).toPrecision(15);
                         screenText = screenText.replace(/\.?0*$/, '');
@@ -50,12 +55,11 @@ $(document).ready(function() {
                 clearScreen();
                 break;
             case "backspace":
-                //删除最后一个字符
+                //如果不是初始状态，删除最后一个字符
                 if(screenText.length > 1){
                     screenText = currentText.replace(/.$/, "");
-                }
-                //如果屏幕信息为空，则显示0
-                else{
+                } else{
+                    //如果屏幕信息为空，则显示0
                     clearScreen();
                 }
                 $('#output').text(screenText);
@@ -79,8 +83,9 @@ $(document).ready(function() {
                 } else {
                     //如果最后一位不是运算符，则添加运算符；如果计算过一次再按运算符，继续运算。
                     if ((screenReset === false && isLastStrOperator === false) || hasCalculated === true) {
-                        //将/替换为÷
+                        //将/替换为÷, *替换为×
                         currentValue = currentValue === "/" ? "÷" : currentValue;
+                        currentValue = currentValue === "*" ? "×" : currentValue;
                         screenText = currentText + currentValue;
                         hasCalculated = false;
                         screenReset = false;

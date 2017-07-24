@@ -9,10 +9,8 @@
   <meta name="author" content="">
 
   <title>Javascript Calculator</title>
-
   <!-- stylesheet CSS -->
   <link rel="stylesheet" href="./css/style.css">
-
   <!-- jQuery -->
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 
@@ -26,11 +24,11 @@
     <![endif]-->
 </head>
 <body>
-  <div id="calculator" class="container">
-      <h1>Javascript Calculator</h1>
-      <div id="screen">
-        <div id="output">0</div>
-      </div>
+  <div id="calculator">
+    <h1>Javascript Calculator</h1>
+    <div id="screen">
+      <span id="output">0</span>
+    </div>
     <div class="buttons">
       <div id="numbers">
         <button class="normal-button" value="7">7</button>
@@ -47,16 +45,14 @@
         <button class="normal-button" value="backspace">&larr;</button>
       </div>
       <div id="operators">
-        <button class="normal-button" value="*">&times;</button>
+        <button class="normal-button big-button" value="*">&times;</button>
         <button class="normal-button" value="clear">C</button>
-        <button class="normal-button" value="-">-</button>
-        <button class="normal-button" value="/">&divide;</button>
-        <button class="higher-button" value="+">+</button>
-        <button class="higher-button" value="=">=</button>
+        <button class="normal-button big-button" value="-">-</button>
+        <button class="normal-button big-button" value="/">&divide;</button>
+        <button class="higher-button big-button" value="+">+</button>
+        <button class="higher-button big-button" value="=">=</button>
       </div>
     </div>
   </div>
-
-
 </body>
 </html>
