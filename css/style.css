@@ -83,7 +83,6 @@ button:hover {
 button:active {
 	background-image: linear-gradient(#e4e4e4 0%, rgb(204, 204, 204) 100%);
 	box-shadow: inset 0px 1px 0px #e4e4e4, 0px 2px 0px 0px #484848, 0px 5px 3px #999;
-    transform: translateY(-3px);
 }
 
 .buttons {
