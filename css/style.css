@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
 
-    font-family: 'Orbitron', "Microsoft-Yahei", sans-serif;
+    font-family: 'Orbitron', 'Microsoft-Yahei', Arial, sans-serif;
     font-size: 16px;
 }
 
@@ -39,7 +39,7 @@ h1 {
 }
 
 #screen {
-    font-family: 'digital-7';
+    font-family: 'digital-7', 'Microsoft-Yahei', Arial, sans-serif;
     font-size: 42px;
     line-height: 1.2;
     margin: 15px auto;
