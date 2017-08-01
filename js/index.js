@@ -12,7 +12,7 @@ $(document).ready(function() {
     //当前按键信息
     var currentValue = "0";
     //运算符数组
-    var operators = ["+", "-", "*", "/"];
+    var operators = ["+", "-", "×", "÷"];
     $('button').click(function() {
         currentText = $('#output').text();
         currentValue = $(this).val();
@@ -79,13 +79,14 @@ $(document).ready(function() {
                 //空屏只允许输入减号
                 if ((currentText === "0" || currentText === "-") && currentValue !== "-") {
                     screenText = currentText;
-                    $('#output').text(screenText);
                 } else {
                     //如果最后一位不是运算符，则添加运算符；如果计算过一次再按运算符，继续运算。
-                    if ((screenReset === false && isLastStrOperator === false) || hasCalculated === true) {
-                        //将/替换为÷, *替换为×
-                        currentValue = currentValue === "/" ? "÷" : currentValue;
-                        currentValue = currentValue === "*" ? "×" : currentValue;
+                    
+                    //将/替换为÷, *替换为×
+                    currentValue = currentValue.replace(/[*/]/g, function(match){
+                        return match === '*' ? '×' : '÷';
+                    });
+                    if ((screenReset === false && isLastStrOperator === false) || hasCalculated === true) {   
                         screenText = currentText + currentValue;
                         hasCalculated = false;
                         screenReset = false;
@@ -94,8 +95,8 @@ $(document).ready(function() {
                         screenText = currentText.replace(/.$/, currentValue);
                         screenReset = false;
                     }
-                    $('#output').text(screenText);
                 }
+                $('#output').text(screenText);
                 break;
             case "0":
                 //末位为0时
